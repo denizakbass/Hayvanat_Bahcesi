@@ -1,0 +1,38 @@
+@model HayvanatBahcesiProje.Models.Hayvan
+
+@{
+    ViewData["Title"] = Model.Ad + " Hakkında Bilgiler";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0" style="border-radius: 20px; overflow: hidden;">
+        <div class="row g-0">
+            
+            <div class="col-md-5">
+                <img src="~/ProjeGorseller/@Model.ResimUrl" class="img-fluid h-100" 
+                     style="object-fit: cover; min-height: 400px;"
+                     onerror="this.src='/ProjeGorseller/yok.png'">
+            </div>
+
+            <div class="col-md-7 p-5">
+                <h1 class="display-4 text-success fw-bold">@Model.Ad</h1>
+                <p class="badge bg-dark fs-6">@Model.Tur</p>
+                <hr>
+
+                <div class="row mb-4">
+                    <div class="col-6 mb-2"><strong>📍 Kökeni:</strong> @Model.Ulke</div>
+                    <div class="col-6 mb-2"><strong>❤️ Ortalama Ömür:</strong> @Model.Omur</div>
+                    <div class="col-6 mb-2"><strong>📏 Ortalama Boy:</strong> @Model.Boy</div>
+                    <div class="col-6 mb-2"><strong>⚖️ Ortalama Ağırlık:</strong> @Model.Agirlik</div>
+                </div>
+
+                <h5 class="fw-bold">Detaylı Bilgi</h5>
+                <p class="text-muted" style="line-height: 1.8; text-align: justify;">@Model.Bilgi</p>
+
+                <div class="mt-5">
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-success px-4">Listeye Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

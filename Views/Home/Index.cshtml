@@ -1,0 +1,73 @@
+﻿@model List<HayvanatBahcesiProje.Models.Hayvan>
+
+<h2 class="text-center text-success my-4">Hayvanat Bahçesi</h2>
+
+<form method="get" asp-action="Index" class="row g-3 bg-light p-3 border rounded mb-4">
+    <div class="col-md-6">
+        <input type="text" name="arama" class="form-control" placeholder="Hayvan adı, tür veya ülke yazın..." value="@Context.Request.Query["arama"]">
+    </div>
+    <div class="col-md-4">
+        <select name="sirala" class="form-select">
+            <option value="">Sıralama Seçin</option>
+            <option value="tur">Türe Göre</option>
+            <option value="ulke">Ülkeye Göre</option>
+            <option value="omur">Ömre Göre</option>
+            <option value="boy">Boyuna Göre</option>
+            <option value="agirlik">Ağırlığa Göre</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-dark w-100">Ara / Filtrele</button>
+    </div>
+</form>
+
+<table class="table table-bordered table-striped align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th></th>
+            <th>Ad</th>
+            <th>Tür</th>
+            <th>Köken</th>
+            <th>Ömür</th>
+            <th>Boy</th>
+            <th>Ağırlık</th>
+            <th style="width:300px;">Bilgi</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count == 0)
+        {
+            <tr>
+                <td colspan="9" class="text-center text-danger">Aradığınız kriterlere uygun hayvan bulunamadı.</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var h in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/ProjeGorseller/@h.ResimUrl" width="60" onerror="this.src='/ProjeGorseller/yok.png'">
+                    </td>
+                    <td>
+                        <a asp-action="detaylar" asp-route-id="@h.Id" class="text-success fw-bold text-decoration-none">
+                            @h.Ad <i class="small text-muted">(Detay İçin Tıkla)</i>
+                        </a>
+                    </td>
+                    <td>@h.Tur</td>
+                    <td>@h.Ulke</td>
+                    <td>@h.Omur</td>
+                    <td>@h.Boy</td>
+                    <td>@h.Agirlik</td>
+                    <td>
+                        <div style="max-height:100px; overflow-y:auto; font-size:11px;">@h.Bilgi</div>
+                    </td>
+                    <td>
+                        <a asp-action="Sil" asp-route-id="@h.Id" class="btn btn-sm btn-danger" onclick="return confirm('Silinsin mi?')">sil</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

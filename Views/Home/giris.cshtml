@@ -1,0 +1,210 @@
+@{
+    ViewData["Title"] = "Hayvanat Bahçesine Hoş Geldiniz";
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #023b26 0%, #355404 100%);
+            padding: 100px 0;
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero-section h1 {
+            color: rgb(255, 255, 255);
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        .hero-section p {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-enter-panel {
+            background: #4caf50;
+            background: linear-gradient(to right, #66bb6a, #4caf50);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            display: inline-block;
+        }
+
+        .btn-enter-panel:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.5);
+            color: white;
+        }
+
+        .featured-animals {
+            padding-bottom: 50px;
+        }
+
+        .featured-animals h2 {
+            text-align: center;
+            color: #033a18;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .animal-card {
+            background: white;
+            border-radius: 20px;
+            border: none;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .animal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .animal-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .animal-card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .animal-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .animal-card-type {
+            font-size: 0.9rem;
+            color: #2e7d32;
+            background: #e8f5e9;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .stats-section {
+            background-color: white;
+            padding: 50px 0;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #4caf50;
+        }
+
+        .stat-label {
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <div class="container">
+            <h1>Dünyanın Her Yerinden Hayvanları Keşfedin</h1>
+            <p>Hayvanat Bahçesi ile dünyanın dört bir yanından gelen canlıları inceleyin, özelliklerini öğrenin ve ekosistemimizi daha yakından tanıyın.</p>
+            <a href="@Url.Action("Index", "Home")" class="btn-enter-panel">
+                Keşfetmeye Başlayın!
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+       
+        <div class="stats-section row">
+            <div class="col-md-4 stat-item">
+                <div class="stat-number"></div>
+                <div class="stat-label"></div>
+            </div>
+            <div class="col-md-4 stat-item">
+                <div class="stat-number"></div>
+                <div class="stat-label"></div>
+            </div>
+            <div class="col-md-4 stat-item">
+                <div class="stat-number"></div>
+                <div class="stat-label"></div>
+            </div>
+        </div>
+
+     
+        <div class="featured-animals">
+            <h2>Öne Çıkan Canlılarımız</h2>
+            <div class="row g-4">
+                
+                <div class="col-md-4">
+                    <div class="card animal-card shadow-sm">
+                        <img src="~/ProjeGorseller/filBanner.jpg" alt="Afrika Fili">
+                        <div class="animal-card-body">
+                            <div class="animal-card-title">Afrika Fili</div>
+                            <div class="animal-card-type">Memeli</div>
+                            <p class="card-text text-muted small">Dünyanın en büyük kara memelisi...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card animal-card shadow-sm">
+                        <img src="~/ProjeGorseller/ocBanner.jpg" alt="octopus">
+                        <div class="animal-card-body">
+                            <div class="animal-card-title">Ahtapot</div>
+                            <div class="animal-card-type">Yumuşakça</div>
+                            <p class="card-text text-muted small">Denizlerin en zeki canlılarından biri...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card animal-card shadow-sm">
+                        <img src="~/ProjeGorseller/AriBanner.jpg" alt="BalArisi">
+                        <div class="animal-card-body">
+                            <div class="animal-card-title">Balarısı</div>
+                            <div class="animal-card-type">Eklembacaklı</div>
+                            <p class="card-text text-muted small">Ekosistemin en önemli tozlaştırıcısı...</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
